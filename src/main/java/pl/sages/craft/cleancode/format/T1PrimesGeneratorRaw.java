@@ -18,7 +18,7 @@ package pl.sages.craft.cleancode.format;
  * @author Alphonse
  * @version 13 Feb 2002 atp
  */
-public class PrimesGeneratorRaw {
+public class T1PrimesGeneratorRaw {
 
     /**
      * @param maxValue jest limitem generacji.
