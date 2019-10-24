@@ -1,4 +1,4 @@
-package pl.sages.craft.cleancode.classes;
+package pl.sages.craft.cleancode.classes.ex1;
 
 //TODO Extract class from this class
 class T2PersonRaw {

@@ -1,4 +1,4 @@
-package pl.sages.craft.cleancode.classes;
+package pl.sages.craft.cleancode.classes.ex2;
 
 import java.math.BigDecimal;
 
