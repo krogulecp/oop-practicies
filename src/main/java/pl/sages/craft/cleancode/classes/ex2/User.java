@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 /**
  * @author krogulecp
  */
-public class T3User {
+public class User {
     private Account account;
 
     private double discountedPlanPrice(String code){

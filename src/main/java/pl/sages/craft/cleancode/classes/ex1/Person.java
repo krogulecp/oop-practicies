@@ -1,7 +1,7 @@
 package pl.sages.craft.cleancode.classes.ex1;
 
 //TODO Extract class from this class
-class T2PersonRaw {
+class Person {
     private String name;
     private String officeAreaCode;
     private String officeNumber;
