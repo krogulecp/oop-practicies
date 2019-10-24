@@ -7,20 +7,17 @@ import java.util.Random;
  * @author krogulecp
  */
 class SalaryCalculator {
+    private final TaxPolicy taxPolicy;
 
-    public SalaryCalculator() {
+    public SalaryCalculator(TaxPolicy taxPolicy) {
+        this.taxPolicy = taxPolicy;
     }
 
-    public BigDecimal calculateSalary(Employee emp, String countryName){
-        BigDecimal salaryWithoutTax = emp.getWorkingDays().multiply(emp.getDailyRate());
+    public BigDecimal calculateSalary(Employee emp){
+        System.out.println("Salary calculated");
 
-        if (countryName.equals("Germany")){
-            return salaryWithoutTax.multiply(BigDecimal.valueOf((1 - 0.21)));
-        } else if (countryName.equals("Poland")){
-            return salaryWithoutTax.multiply(BigDecimal.valueOf((1 - 0.19)));
-        } else {
-            throw new RuntimeException();
-        }
+        BigDecimal salaryWithoutTax = emp.getWorkingDays().multiply(emp.getDailyRate());
+        return salaryWithoutTax.multiply(BigDecimal.valueOf((1 - taxPolicy.getTax())));
     }
 }
 
