@@ -11,7 +11,6 @@ package pl.sages.craft.cleancode.format;
  * <p>
  * Algorytm jest dosyć prosty. Mamy tablicę liczb całkowitych
  * zaczynających się od 2. Wykreślamy wszystkie wielokrotności 2. Szukamy
- K O M E N T A R Z E 9 3
  * następnej niewykreślonej liczby i wykreślamy wszystkie jej wielokrotności.
  * Powtarzamy działania do momentu osiągnięcia pierwiastka kwadratowego z maksymalnej wartości.
  *
@@ -25,45 +24,52 @@ public class PrimesGenerator {
      */
     public static int[] generatePrimes(int maxValue)
     {
+
         if (maxValue >= 2) // Jedyny prawidłowy przypadek.
         {
-            // Deklaracje.
-            int s = maxValue + 1; // Rozmiar tablicy.
-            boolean[] f = new boolean[s];
+            int rozmiarTablicy = maxValue + 1; // Rozmiar tablicy.
+            boolean[] f = przygotujTabliceF(rozmiarTablicy);
             int i;
-            // Inicjalizacja tablicy wartościami true.
-            for (i = 0; i < s; i++)
-                f[i] = true;
-            // Usuwanie znanych liczb niebędących pierwszymi.
-            f[0] = f[1] = false;
+
             // Sito.
             int j;
-            for (i = 2; i < Math.sqrt(s) + 1; i++)
+            for (i = 2; i < Math.sqrt(rozmiarTablicy) + 1; i++)
             {
                 if (f[i]) // Jeżeli i nie jest wykreślone, wykreślamy jego wielokrotności.
                 {
-                    for (j = 2 * i; j < s; j += i)
+                    for (j = 2 * i; j < rozmiarTablicy; j += i)
                         f[j] = false; // Wielokrotności nie są pierwsze.
                 }
             }
-            // Ile mamy liczb pierwszych?
-            int count = 0;
-            for (i = 0; i < s; i++)
+
+            int iloscLiczbPierwszych = 0;
+            for (i = 0; i < rozmiarTablicy; i++)
             {
                 if (f[i])
-                    count++; // Licznik trafień.
+                    iloscLiczbPierwszych++;
             }
-            int[] primes = new int[count];
+            int[] primes = new int[iloscLiczbPierwszych];
             // Przeniesienie liczb pierwszych do wyniku.
-            for (i = 0, j = 0; i < s; i++)
+            for (i = 0, j = 0; i < rozmiarTablicy; i++)
             {
                 if (f[i]) // Jeżeli pierwsza.
                     primes[j++] = i;
             }
-            return primes; // Zwracamy liczby pierwsze.
+            return primes;
         }
-        else // maxValue < 2
+        else
             return new int[0]; // Zwracamy pustą tablicę, jeżeli niewłaściwe dane wejściowe.
     }
+
+
+    private static boolean[] przygotujTabliceF(int rozmiarTablicy){
+        boolean[] przygotowaneF = new boolean[rozmiarTablicy];
+
+        for (int i = 2; i < rozmiarTablicy; i++)
+            przygotowaneF[i] = true;
+
+        return przygotowaneF;
+    }
+
 }
 
