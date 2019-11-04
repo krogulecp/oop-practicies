@@ -15,6 +15,9 @@ class PrimesGeneratorTest {
         //when
         int[] primes = PrimesGenerator.generatePrimes(10);
 
+        for (int i: primes) {
+            System.out.println(i);
+        }
         //then
         assertArrayEquals(new int[]{2,3,5,7}, primes);
     }
