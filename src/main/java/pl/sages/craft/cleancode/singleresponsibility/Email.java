@@ -5,7 +5,7 @@ package pl.sages.craft.cleancode.singleresponsibility;
  */
 //TODO Refactor aby była zachowana Single Responsibility Principle
 class Email {
-    private String from;//testowa
+    private String from;
     private String to;
     private String subject;
     private String message;
