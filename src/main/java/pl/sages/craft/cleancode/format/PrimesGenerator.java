@@ -27,18 +27,17 @@ class PrimesGenerator {
         czyscNiepasujace(maxSize, czyPierwsze);
         int count = zliczLiczbyPierwsze(maxSize, czyPierwsze);
 
-        int[] primes = new int[count];
-        budujWynik(maxSize, czyPierwsze, primes);
-        return primes; // Zwracamy liczby pierwsze.
+        return budujWynik(maxSize, czyPierwsze, count);
     }
 
-    private static void budujWynik(int maxSize, boolean[] czyPierwsze, int[] primes) {
-        // Przeniesienie liczb pierwszych do wyniku.
+    private static int[] budujWynik(int maxSize, boolean[] czyPierwsze, int count) {
+        int[] primes = new int[count];
         for (int i = 0, j = 0; i < maxSize; i++)
         {
-            if (czyPierwsze[i]) // Jeżeli pierwsza.
+            if (czyPierwsze[i])
                 primes[j++] = i;
         }
+        return primes;
     }
 
     private static int zliczLiczbyPierwsze(int maxSize, boolean[] czyPierwsze) {
