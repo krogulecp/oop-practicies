@@ -5,7 +5,7 @@ class Person {
     private String name;
     private String officeAreaCode;
     private String officeNumber;
-    privete String test;
+    //privete String test;
 
 
     public String getName() {
