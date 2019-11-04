@@ -5,6 +5,8 @@ class Person {
     private String name;
     private String officeAreaCode;
     private String officeNumber;
+    privete String test;
+
 
     public String getName() {
         return name;
