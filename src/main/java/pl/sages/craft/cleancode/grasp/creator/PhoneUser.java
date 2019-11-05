@@ -6,6 +6,6 @@ package pl.sages.craft.cleancode.grasp.creator;
 class PhoneUser {
 
     public static void main(String[] args) {
-        //TODO create phone
+        Phone phone = new Phone(5.5, 1000);
     }
 }
