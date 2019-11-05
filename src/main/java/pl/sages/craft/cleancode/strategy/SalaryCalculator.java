@@ -7,36 +7,44 @@ import java.util.Random;
  * @author krogulecp
  */
 class SalaryCalculator {
+    private TaxPolicy taxPolicy;
 
-    public SalaryCalculator() {
+    public SalaryCalculator(TaxPolicy taxPolicy) {
+        this.taxPolicy = taxPolicy;
     }
 
-    public BigDecimal calculateSalary(Employee emp, String countryName){
+    public BigDecimal calculateSalary(Employee emp){
         BigDecimal salaryWithoutTax = emp.getWorkingDays().multiply(emp.getDailyRate());
-
-        if (countryName.equals("Germany")){
-            return salaryWithoutTax.multiply(BigDecimal.valueOf((1 - 0.21)));
-        } else if (countryName.equals("Poland")){
-            return salaryWithoutTax.multiply(BigDecimal.valueOf((1 - 0.19)));
-        } else {
-            throw new RuntimeException();
-        }
+        return salaryWithoutTax.multiply(BigDecimal.valueOf((1 - taxPolicy.getTax())));
     }
 }
 
 class Employee{
-
     BigDecimal getWorkingDays() {
         return BigDecimal.valueOf(new Random(30).nextLong());
     }
-
     BigDecimal getDailyRate() {
         return BigDecimal.valueOf(new Random().nextLong());
     }
+
 }
 
 interface TaxPolicy{
-
     double getTax();
+}
+
+class Country implements TaxPolicy {
+    private String name;
+    private double tax;
+
+    Country(String name, double tax) {
+        this.name = name;
+        this.tax = tax;
+    }
+
+    @Override
+    public double getTax() {
+        return tax;
+    }
 }
 
