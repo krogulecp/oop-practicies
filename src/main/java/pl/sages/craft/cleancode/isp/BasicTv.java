@@ -7,6 +7,6 @@ class BasicTv implements Tv {
 
     @Override
     public void display() {
-        System.out.println("display some film");
+        System.out.println("Wyświetlam obraz na Basic TV");
     }
 }

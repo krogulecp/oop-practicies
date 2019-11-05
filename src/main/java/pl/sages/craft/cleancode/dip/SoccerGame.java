@@ -1,19 +1,18 @@
 package pl.sages.craft.cleancode.dip;
 
+import java.util.List;
+
 /**
  * @author krogulecp
  */
-class SoccerGame {
-    private final Goalkeeper goalkeeper;
-    private final Midfielder midfielder;
+class SoccerGame{
+    private final List<SoccerPlayer> players;
 
-    public SoccerGame(Goalkeeper goalkeeper, Midfielder midfielder) {
-        this.goalkeeper = goalkeeper;
-        this.midfielder = midfielder;
+    public SoccerGame(List<SoccerPlayer> players) {
+        this.players = players;
     }
 
     void match(){
-        goalkeeper.protectGoal();
-        midfielder.playInMidfield();
+        players.forEach(SoccerPlayer::play);
     }
 }
