@@ -10,9 +10,8 @@ class EmailTest {
     void shouldSend() {
         //given
         //when
-        Email email = new Email();
-        email.setMessage("Test polityka test");
-        email.send();
+        EmailSender sender = new EmailSender();
+        sender.send("a", "b", "temat", "Wiadomość");
 
         //then
         //Bez then, chcę tylko odpalić send()

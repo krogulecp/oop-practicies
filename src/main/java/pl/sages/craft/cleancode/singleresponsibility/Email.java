@@ -10,11 +10,20 @@ class Email {
     private String subject;
     private String message;
 
-    public void send(){
+    public Email(){
+
+    }
+
+    public Email (String from, String to, String subject, String message){
+        from = from;
+        to = to;
+        subject = subject;
+        message = message;
+    }
+    public boolean send(){
         Validator validator = new Validator();
-        if (validator.validate(message)) {
-            System.out.println("sending email");
-        }
+        boolean validate = validator.validate(message);
+        return validate;
     }
 
     public String getFrom() {
