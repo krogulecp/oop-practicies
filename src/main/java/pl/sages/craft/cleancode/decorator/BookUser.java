@@ -9,12 +9,19 @@ import java.util.List;
 class BookUser {
 
     public static void main(String[] args) {
-        BasicBook book = new BasicBook();
+        Book book = () -> "Book";
 
-        FictionBookDecorator fictionBookDecorator = new FictionBookDecorator(book);
-        HardCoverBookDecorator hardCoverBookDecorator = new HardCoverBookDecorator(book);
-        ScienceBookDecorator scienceBookDecorator = new ScienceBookDecorator(book);
-        HardCoverBookDecorator scienceHardCoveredBook = new HardCoverBookDecorator(scienceBookDecorator);
+        // Usunięto dekoratory, dzięki funkcjonanlności JAVA 8 nie były w tym przypadku konieczne.
+//        FictionBookDecorator fictionBookDecorator = new FictionBookDecorator(book);
+//        HardCoverBookDecorator hardCoverBookDecorator = new HardCoverBookDecorator(book);
+//        ScienceBookDecorator scienceBookDecorator = new ScienceBookDecorator(book);
+//        HardCoverBookDecorator scienceHardCoveredBook = new HardCoverBookDecorator(scienceBookDecorator);
+
+        Book fictionBookDecorator = () -> "Fiction " + book.describe();
+        Book hardCoverBookDecorator = () -> book.describe() + " with hard cover";
+        Book scienceBookDecorator = () -> "Science " + book.describe();
+        Book scienceHardCoveredBook =  () -> scienceBookDecorator.describe() + " with hard cover";
+
 
         List<Book> books = new ArrayList<>();
         books.add(fictionBookDecorator);
