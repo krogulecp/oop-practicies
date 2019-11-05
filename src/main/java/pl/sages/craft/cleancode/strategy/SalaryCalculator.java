@@ -26,21 +26,14 @@ class Employee{
     BigDecimal getDailyRate() {
         return BigDecimal.valueOf(new Random().nextLong());
     }
-
 }
 
 interface TaxPolicy{
     double getTax();
 }
 
-class Country implements TaxPolicy {
-    private String name;
-    private double tax;
-
-    Country(String name, double tax) {
-        this.name = name;
-        this.tax = tax;
-    }
+class TaxPolicyPoland implements TaxPolicy {
+    private final double tax = 0.19;
 
     @Override
     public double getTax() {
@@ -48,3 +41,11 @@ class Country implements TaxPolicy {
     }
 }
 
+class TaxPolicyGermany implements TaxPolicy {
+    private final double tax = 0.21;
+
+    @Override
+    public double getTax() {
+        return tax;
+    }
+}
