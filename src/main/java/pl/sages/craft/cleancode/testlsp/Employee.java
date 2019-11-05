@@ -5,17 +5,21 @@ package pl.sages.craft.cleancode.testlsp;
  */
 class Employee {
     void takeSalary(){
-        //do something
+        System.out.println("Employee takes salary");
     }
 }
 
 class Volonteer extends Employee{
-    //TODO
+    @Override
+    void takeSalary() {
+        //
+    }
 }
 
 class ClientClass{
 
     public static void main(String[] args) {
-        //TODO
+        Employee e = new Volonteer();
+        e.takeSalary();
     }
 }

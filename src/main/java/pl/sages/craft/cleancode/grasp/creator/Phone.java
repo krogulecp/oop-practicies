@@ -7,9 +7,9 @@ class Phone {
     private final Camera camera;
     private final Screen screen;
 
-    public Phone(Camera camera, Screen screen) {
-        this.camera = camera;
-        this.screen = screen;
+    public Phone(double cameraMegapixels, double screenSize) {
+        this.camera = new Camera(cameraMegapixels);
+        this.screen = new Screen(screenSize);
     }
 
     public Camera getCamera() {
