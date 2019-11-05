@@ -11,14 +11,9 @@ class Email {
     private String message;
 
     public void send(){
-        System.out.println("sending email");
-    }
-
-    public void validate(){
-        if (message.contains("polityka")){
-            System.out.println("sending not permitted");
-        } else {
-            System.out.println("email valid");
+        Validator validator = new Validator();
+        if (validator.validate(message)) {
+            System.out.println("sending email");
         }
     }
 
@@ -52,5 +47,17 @@ class Email {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+}
+
+class Validator {
+    boolean validate(String message) {
+        if (message.contains("polityka")){
+            System.out.println("sending not permitted");
+            return false;
+        } else {
+            System.out.println("email valid");
+            return true;
+        }
     }
 }
