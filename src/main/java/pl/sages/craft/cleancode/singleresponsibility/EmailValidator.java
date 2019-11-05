@@ -11,7 +11,13 @@ class EmailValidator implements Validator {
     }
 
     @Override
-    public void validate() {
-
+    public boolean validate(){
+        if (message.contains("polityka")){
+            System.out.println("sending not permitted");
+            return false;
+        } else {
+            System.out.println("email valid");
+            return true;
+        }
     }
 }

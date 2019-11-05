@@ -3,23 +3,18 @@ package pl.sages.craft.cleancode.singleresponsibility;
 /**
  * @author krogulecp
  */
-//TODO Refactor aby była zachowana Single Responsibility Principle
+
 class Email {
     private String from;
     private String to;
     private String subject;
     private String message;
 
-    public void send(){
-        System.out.println("sending email");
-    }
-
-    public void validate(){
-        if (message.contains("polityka")){
-            System.out.println("sending not permitted");
-        } else {
-            System.out.println("email valid");
-        }
+    Email(String from, String to, String subject, String message) {
+        this.from = from;
+        this.to = to;
+        this.subject = subject;
+        this.message = message;
     }
 
     public String getFrom() {
@@ -46,7 +41,7 @@ class Email {
         this.subject = subject;
     }
 
-    public String getMessage() {
+    String getMessage() {
         return message;
     }
 

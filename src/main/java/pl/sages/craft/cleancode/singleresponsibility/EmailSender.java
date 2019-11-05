@@ -15,6 +15,8 @@ class EmailSender implements Sender {
 
     @Override
     public void send() {
-        validator.validate();
+        if (validator.validate()) {
+            System.out.println("sending email, message " + email.getMessage());
+        }
     }
 }
