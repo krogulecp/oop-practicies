@@ -6,21 +6,25 @@ import java.util.Random;
 /**
  * @author krogulecp
  */
-class SalaryCalculator {
+class SalaryCalculatorGermany implements TaxPolicy {
 
-    public SalaryCalculator() {
+    public SalaryCalculatorGermany() {
     }
 
-    public BigDecimal calculateSalary(Employee emp, String countryName){
+   public BigDecimal calculateSalary(Employee emp, TaxPolicy tax){
         BigDecimal salaryWithoutTax = emp.getWorkingDays().multiply(emp.getDailyRate());
+        return salaryWithoutTax.multiply(BigDecimal.valueOf((1 - tax.getTax())));
+    }
+}
 
-        if (countryName.equals("Germany")){
-            return salaryWithoutTax.multiply(BigDecimal.valueOf((1 - 0.21)));
-        } else if (countryName.equals("Poland")){
-            return salaryWithoutTax.multiply(BigDecimal.valueOf((1 - 0.19)));
-        } else {
-            throw new RuntimeException();
-        }
+class SalaryCalculatorPoland implements TaxPolicy {
+
+    public SalaryCalculatorPoland() {
+    }
+
+    public BigDecimal calculateSalary(Employee emp, TaxPolicy tax){
+        BigDecimal salaryWithoutTax = emp.getWorkingDays().multiply(emp.getDailyRate());
+        return salaryWithoutTax.multiply(BigDecimal.valueOf((1 - tax.getTax())));
     }
 }
 
