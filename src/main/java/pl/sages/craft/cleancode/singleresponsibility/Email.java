@@ -10,18 +10,6 @@ class Email {
     private String subject;
     private String message;
 
-    public void send(){
-        System.out.println("sending email");
-    }
-
-    public void validate(){
-        if (message.contains("polityka")){
-            System.out.println("sending not permitted");
-        } else {
-            System.out.println("email valid");
-        }
-    }
-
     public String getFrom() {
         return from;
     }
