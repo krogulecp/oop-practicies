@@ -23,35 +23,35 @@
 
 package pl.sages.craft.cleancode.designpatterns.proxy;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * 
- * A proxy, in its most general form, is a class functioning as an interface to something else. The
- * proxy could interface to anything: a network connection, a large object in memory, a file, or
- * some other resource that is expensive or impossible to duplicate. In short, a proxy is a wrapper
- * or agent object that is being called by the client to access the real serving object behind the
- * scenes.
- * <p>
- * The Proxy design pattern allows you to provide an interface to other objects by creating a
- * wrapper class as the proxy. The wrapper class, which is the proxy, can add additional
- * functionality to the object of interest without changing the object's code.
- * <p>
- * In this example the proxy ({@link WizardTowerProxy}) controls access to the actual object (
- * {@link IvoryTower}).
+ * The proxy controlling access to the {@link IvoryTower}.
  * 
  */
-public class App {
+public class WizardTowerProxy implements WizardTower {
 
-  /**
-   * Program entry point
-   */
-  public static void main(String[] args) {
+  private static final Logger LOGGER = LoggerFactory.getLogger(WizardTowerProxy.class);
 
-    WizardTowerProxy proxy = new WizardTowerProxy(new IvoryTower());
-    proxy.enter(new Wizard("Red wizard"));
-    proxy.enter(new Wizard("White wizard"));
-    proxy.enter(new Wizard("Black wizard"));
-    proxy.enter(new Wizard("Green wizard"));
-    proxy.enter(new Wizard("Brown wizard"));
+  private static final int NUM_WIZARDS_ALLOWED = 3;
 
+  private int numWizards;
+
+  private final WizardTower tower;
+
+  public WizardTowerProxy(WizardTower tower) {
+    this.tower = tower;
+  }
+
+  @Override
+  public void enter(Wizard wizard) {
+    if (numWizards < NUM_WIZARDS_ALLOWED) {
+      tower.enter(wizard);
+      numWizards++;
+    } else {
+      LOGGER.info("{} is not allowed to enter!", wizard);
+    }
   }
 }
