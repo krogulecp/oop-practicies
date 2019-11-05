@@ -33,7 +33,6 @@ class Employee{
 }
 
 interface TaxPolicy{
-
     double getTax();
 }
 
