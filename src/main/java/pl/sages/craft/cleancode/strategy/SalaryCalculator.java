@@ -8,35 +8,20 @@ import java.util.Random;
  */
 class SalaryCalculator {
 
-    public SalaryCalculator() {
-    }
+    TaxPolicy taxPolicy;
 
-    public BigDecimal calculateSalary(Employee emp, String countryName){
-        BigDecimal salaryWithoutTax = emp.getWorkingDays().multiply(emp.getDailyRate());
-
-        if (countryName.equals("Germany")){
-            return salaryWithoutTax.multiply(BigDecimal.valueOf((1 - 0.21)));
-        } else if (countryName.equals("Poland")){
-            return salaryWithoutTax.multiply(BigDecimal.valueOf((1 - 0.19)));
-        } else {
+    public SalaryCalculator(TaxPolicy taxPolicy) {
+        if (taxPolicy==null) {
             throw new RuntimeException();
         }
+        this.taxPolicy = taxPolicy;
+    }
+
+    public BigDecimal calculateSalary(Employee emp){
+        BigDecimal salaryWithoutTax = emp.getWorkingDays().multiply(emp.getDailyRate());
+        return salaryWithoutTax.multiply(BigDecimal.valueOf((1 - taxPolicy.getTax())));
     }
 }
 
-class Employee{
 
-    BigDecimal getWorkingDays() {
-        return BigDecimal.valueOf(new Random(30).nextLong());
-    }
-
-    BigDecimal getDailyRate() {
-        return BigDecimal.valueOf(new Random().nextLong());
-    }
-}
-
-interface TaxPolicy{
-
-    double getTax();
-}
 
