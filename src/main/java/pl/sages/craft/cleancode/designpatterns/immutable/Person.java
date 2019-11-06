@@ -1,46 +1,48 @@
 package pl.sages.craft.cleancode.designpatterns.immutable;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * @author krogulecp
  */
-class Person {
-    private String firstName;
-    private String lastName;
-    private int age;
-    private List<String> childrenNames;
+final class Person {
+    private final String firstName;
+    private final String lastName;
+    private final int age;
+    private final List<String> childrenNames;
+
+    public Person(String firstName, String lastName, int age, List<String> childrenNames) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        this.childrenNames = new ArrayList<>(childrenNames);
+    }
 
     public String getFirstName() {
         return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
     }
 
     public String getLastName() {
         return lastName;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
     public int getAge() {
         return age;
     }
 
-    public void setAge(int age) {
-        this.age = age;
-    }
-
     public List<String> getChildrenNames() {
-        return childrenNames;
+        return new ArrayList<>(childrenNames);
     }
 
-    public void setChildrenNames(List<String> childrenNames) {
-        this.childrenNames = childrenNames;
+    @Override
+    public String toString() {
+        return "Person{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", age=" + age +
+                ", childrenNames=" + childrenNames +
+                '}';
     }
 }
 
