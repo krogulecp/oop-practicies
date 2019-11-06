@@ -1,11 +1,12 @@
 package pl.sages.craft.cleancode.designpatterns.immutable;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * @author krogulecp
  */
-final class Person {
+public final class Person {
     private final String firstName;
     private final String lastName;
     private final int age;
@@ -15,7 +16,7 @@ final class Person {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
-        this.childrenNames = childrenNames;
+        this.childrenNames = new ArrayList<>(childrenNames);
     }
 
     public String getFirstName() {
@@ -31,7 +32,7 @@ final class Person {
     }
 
     public List<String> getChildrenNames() {
-        return childrenNames;
+        return new ArrayList<>(childrenNames);
     }
 
 }
