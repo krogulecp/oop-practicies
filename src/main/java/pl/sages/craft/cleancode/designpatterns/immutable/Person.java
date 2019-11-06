@@ -16,7 +16,7 @@ public final class Person {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
-        this.childrenNames = new ArrayList<>(childrenNames);
+        this.childrenNames = new ArrayList<>(childrenNames); // Potrzebne ponieważ w klasie wywołującej przekazujemy listę, tworzymy obiekt, a potem moglibyśmy zmienić pierwotną przekazywaną listę.
     }
 
     public String getFirstName() {
@@ -32,7 +32,7 @@ public final class Person {
     }
 
     public List<String> getChildrenNames() {
-        return new ArrayList<>(childrenNames);
+        return new ArrayList<>(childrenNames); // Dzięki temu nie można pobrać listy i zrobić na niej add(). Zawsze zwracany jest nowy obiekt.
     }
 
 }
