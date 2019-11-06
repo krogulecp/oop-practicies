@@ -23,7 +23,6 @@
 
 package pl.sages.craft.cleancode.designpatterns.abstractfactory;
 
-import com.iluwatar.abstractfactory.App.FactoryMaker.KingdomType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -133,13 +132,13 @@ public class App {
     App app = new App();
 
     LOGGER.info("Elf Kingdom");
-    app.createKingdom(FactoryMaker.makeFactory(KingdomType.ELF));
+    app.createKingdom(FactoryMaker.makeFactory(FactoryMaker.KingdomType.ELF));
     LOGGER.info(app.getArmy().getDescription());
     LOGGER.info(app.getCastle().getDescription());
     LOGGER.info(app.getKing().getDescription());
 
     LOGGER.info("Orc Kingdom");
-    app.createKingdom(FactoryMaker.makeFactory(KingdomType.ORC));
+    app.createKingdom(FactoryMaker.makeFactory(FactoryMaker.KingdomType.ORC));
     LOGGER.info(app.getArmy().getDescription());
     LOGGER.info(app.getCastle().getDescription());
     LOGGER.info(app.getKing().getDescription());
