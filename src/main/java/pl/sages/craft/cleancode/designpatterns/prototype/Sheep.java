@@ -9,4 +9,7 @@ abstract class Sheep {
     protected Sheep(String name) {
         this.name = name;
     }
+
+    public abstract Sheep makeCopy();
+
 }
