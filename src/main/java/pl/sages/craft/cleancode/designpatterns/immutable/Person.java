@@ -11,36 +11,27 @@ class Person {
     private int age;
     private List<String> childrenNames;
 
-    public String getFirstName() {
-        return firstName;
+    public Person(String firstName, String lastName, int age, List<String> childrenNames) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        this.childrenNames = childrenNames;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public String getFirstName() {
+        return firstName;
     }
 
     public String getLastName() {
         return lastName;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
     public int getAge() {
         return age;
     }
 
-    public void setAge(int age) {
-        this.age = age;
-    }
-
     public List<String> getChildrenNames() {
         return childrenNames;
-    }
-
-    public void setChildrenNames(List<String> childrenNames) {
-        this.childrenNames = childrenNames;
     }
 }
 
