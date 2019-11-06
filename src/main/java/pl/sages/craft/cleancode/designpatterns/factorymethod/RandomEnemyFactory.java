@@ -2,14 +2,17 @@ package pl.sages.craft.cleancode.designpatterns.factorymethod;
 
 import java.util.Random;
 
-public class RandomEnemyFactory implements EnemyFactory<Enemy> {
+public class RandomEnemyFactory implements EnemyFactory {
+    private final Random seed;
+
+    public RandomEnemyFactory() {
+        seed = new Random();
+    }
+
     @Override
     public Enemy rise() {
-        Random seed = new Random();
         Enemy enemy;
-        int value = seed.nextInt(3);
-        System.out.println(value);
-        switch (value) {
+        switch (seed.nextInt(3)) {
             case 0:
                 enemy = new Psycho();
                 break;
