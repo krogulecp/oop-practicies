@@ -19,4 +19,12 @@ abstract class Enemy {
     public int getPower() {
         return power;
     }
+
+    @Override
+    public String toString() {
+        return "Enemy{" +
+                "name='" + name + '\'' +
+                ", power=" + power +
+                '}';
+    }
 }

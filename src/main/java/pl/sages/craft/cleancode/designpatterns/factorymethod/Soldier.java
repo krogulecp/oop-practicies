@@ -3,10 +3,10 @@ package pl.sages.craft.cleancode.designpatterns.factorymethod;
 /**
  * @author krogulecp
  */
-class Solidier extends Enemy {
-    private static final String NAME = "Solidier";
+class Soldier extends Enemy {
+    private static final String NAME = "Soldier";
     private static final int POWER = 45;
-    public Solidier() {
+    public Soldier() {
         super(NAME, POWER);
     }
 }
