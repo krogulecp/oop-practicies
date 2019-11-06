@@ -46,7 +46,7 @@ public class App {
    */
   public static void main(String[] args) {
 
-    WizardTower wizardTower = new IvoryTower();
+    Proxy wizardTower = new Proxy();
     wizardTower.enter(new Wizard("Red wizard"));
     wizardTower.enter(new Wizard("White wizard"));
     wizardTower.enter(new Wizard("Black wizard"));
