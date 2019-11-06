@@ -6,6 +6,13 @@ package pl.sages.craft.cleancode.designpatterns.builder;
 // TODO Refaktor z wykorzystaniem wzorca builder
 class Film {
     private String title;
+    private int length;
+    private String director;
+    private Category category;
+    private Country madeIn;
+
+    private Film(){
+    }
 
     @Override
     public String toString() {
@@ -17,11 +24,6 @@ class Film {
                 ", madeIn=" + madeIn +
                 '}';
     }
-
-    private int length;
-    private String director;
-    private Category category;
-    private Country madeIn;
 
     static class FilmBuilder{
         private Film film;
