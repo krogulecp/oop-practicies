@@ -30,6 +30,17 @@ class Film {
         return madeIn;
     }
 
+    @Override
+    public String toString() {
+        return "Film{" +
+                "title='" + title + '\'' +
+                ", length=" + length +
+                ", director='" + director + '\'' +
+                ", category=" + category +
+                ", madeIn=" + madeIn +
+                '}';
+    }
+
     private enum  Category {
         COMEDY, THRILLER, ACTION;
     }
