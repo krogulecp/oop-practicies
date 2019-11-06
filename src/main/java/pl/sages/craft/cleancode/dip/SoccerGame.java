@@ -16,3 +16,4 @@ class SoccerGame {
         players.forEach(SoccerPlayer::play);
     }
 }
+

@@ -11,44 +11,54 @@ class Film {
     private Category category;
     private Country madeIn;
 
+    private Film() { }
+
     public String getTitle() {
         return title;
     }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
     public int getLength() {
         return length;
     }
-
-    public void setLength(int length) {
-        this.length = length;
-    }
-
     public String getDirector() {
         return director;
     }
-
-    public void setDirector(String director) {
-        this.director = director;
-    }
-
     public Category getCategory() {
         return category;
     }
-
-    public void setCategory(Category category) {
-        this.category = category;
-    }
-
     public Country getMadeIn() {
         return madeIn;
     }
 
-    public void setMadeIn(Country madeIn) {
+    FilmBilder filmBilder = new FilmBilder();
+
+    public FilmBilder setTitle(String title) {
+        this.title = title;
+        return filmBilder;
+    }
+
+    public FilmBilder setLength(int length) {
+        this.length = length;
+        return filmBilder;
+    }
+
+    public FilmBilder setDirector(String director) {
+        this.director = director;
+        return filmBilder;
+    }
+
+    public FilmBilder setCategory(Category category) {
+        this.category = category;
+        return filmBilder;
+    }
+
+    public FilmBilder setMadeIn(Country madeIn) {
         this.madeIn = madeIn;
+        return filmBilder;
+    }
+
+    static class FilmBilder{
+        Film film = new Film();
+        public Film build(){ return film; }
     }
 
     private enum  Category {

@@ -11,10 +11,10 @@ class BookUser {
     public static void main(String[] args) {
         BasicBook book = new BasicBook();
 
-        FictionBookDecorator fictionBookDecorator = new FictionBookDecorator(book);
-        HardCoverBookDecorator hardCoverBookDecorator = new HardCoverBookDecorator(book);
-        ScienceBookDecorator scienceBookDecorator = new ScienceBookDecorator(book);
-        HardCoverBookDecorator scienceHardCoveredBook = new HardCoverBookDecorator(scienceBookDecorator);
+        Book fictionBookDecorator = new FictionBookDecorator() ->;
+        Book hardCoverBookDecorator = new HardCoverBookDecorator(book);
+        Book scienceBookDecorator = new ScienceBookDecorator(book);
+        Book scienceHardCoveredBook = new HardCoverBookDecorator(scienceBookDecorator);
 
         List<Book> books = new ArrayList<>();
         books.add(fictionBookDecorator);
